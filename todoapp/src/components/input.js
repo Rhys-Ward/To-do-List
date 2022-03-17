@@ -1,14 +1,17 @@
 
-const Input = ( { addHandler } ) => {
+const Input = ( { addHandler, handleClick  } ) => {
  
 
     return ( 
         <div>
             <input 
+            onChange={addHandler}
         placeholder="what do you need"
         name="input" 
         type="text" />
-            <button onClick={() => (addHandler)}>Submit</button>
+            <button onClick={handleClick}>Submit</button>
+            
+    
         </div>
             
      );

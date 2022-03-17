@@ -33,24 +33,11 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={handleClick}> Submit </button>
-      <input
-        type="text"
-        placeholder="what do you need"
-        name="input"
-        onChange={addHandler}
-      />
-
-      <ul>
-        {toDo.map((x, i) => (
-          <li key={i}> {x}
-            <button onClick={() => removeHandler(i)}>Done</button>
-          </li>
-        ))}
-      </ul>
-
-      <Display  />
-      <Input />
+      <Input addHandler={addHandler} handleClick={handleClick}/>
+     
+     <Display toDo={toDo} removeHandler={removeHandler} />
+     
+      
     </div>
   );
 };

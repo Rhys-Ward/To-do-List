@@ -1,11 +1,14 @@
 
-
-
-const Display = ( {toDo} ) => {
+const Display = ( {toDo, removeHandler} ) => {
     return ( 
         <div>
-            <h1>{toDo}</h1>
-            
+             <ul>
+        {toDo.map((x, i) => (
+          <li key={i}> {x}
+            <button onClick={() => removeHandler(i)}>Done</button>
+          </li>
+        ))}
+      </ul>
         </div>
      );
 }
