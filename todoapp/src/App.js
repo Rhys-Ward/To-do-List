@@ -1,98 +1,60 @@
-// import { useState } from "react";
-// import Todos from "./components/todos";
-// // import Input from "./components/input";
-
-
-// const App = () => {
-
-// // ARRAY OF ITEMS
-// const [todos, setToDos] = useState([
-//   {id:1, content: "buy milk"},
-//   {id:2, content:"buy bread"}
-// ]);
-
-// // DELETE BUTTON
-// const removeHandler = (index) => {
-//   let storedlist = [...todos];
-//     storedlist.splice(index,1);
-//     setToDos(storedlist);
- 
-// }
-
-
-// // RETURN 
-//   return (
-//     <div className='todo-app container'>
-//         <h1 className="center blue-text">ToDo</h1>
-
-        
-  
-//   <Todos todos={todos} removeHandler = {removeHandler} />
-
-        
-//     </div>
-//    );
-// }
- 
-
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
-
-
+import Display from "./components/Display";
+import Input from "./components/Input";
 import { useState } from "react";
-import Todos from "./components/todos";
-import Input from "./components/input";
-
 
 const App = () => {
-// USER INPUT
-const [userInput, setUserInput] = useState([""])
+  // DISPLAY
+  // INPUT
+  const [input, setInput] = useState("");
+  // DISPLAY LIST
+  const [toDo, setToDo] = useState([]);
 
-// ON THIS EVENT
-const changeHandler = (event) => {
-    setUserInput(event.target.value)
-}
+  // input 
+  const addHandler = (event) => {
+    setInput(event.target.value);
+  };
 
-  // ARRAY OF ITEMS
-const [todos, setToDos] = useState([
-  {id:1, content: "buy milk"},
-  {id:2, content:"buy bread"}
-])
+// SUBMIT BUTTON
+  const handleClick = () => {
+    let storedList = [...toDo];
+    storedList.push(input);
+    setToDo(storedList);
 
-// DELETE BUTTON
-const removeHandler = (index) => {
-  let storedlist = [...todos];
-    storedlist.splice(index,1);
-    setToDos(storedlist);
- 
-}
+    // setToDo([...toDo, { input }]);
+  };
 
-// RETURN 
+
+  // DELETE
+  const removeHandler = (index) => {
+    let storedArr = [...toDo];
+    storedArr.splice(index, 1);
+    setToDo(storedArr);
+  };
+
   return (
-    <div className='App'>
-        <h1 className="center blue-text">ToDo</h1>
+    <div>
+      <button onClick={handleClick}> Submit </button>
+      <input
+        type="text"
+        placeholder="what do you need"
+        name="input"
+        onChange={addHandler}
+      />
 
-        <Input input={changeHandler} user={userInput} />
-        <Todos todos={todos} removeHandler = {removeHandler}/>
-        {/* {todos.map(() => {
-          // <p key={index}></p>
-         return  <Todos todos={todos} removeHandler = {removeHandler}/> 
-        })} */}
-        
+      <ul>
+        {toDo.map((x, i) => (
+          <li key={i}> {x}
+            <button onClick={() => removeHandler(i)}>Done</button>
+          </li>
+        ))}
+      </ul>
+
+      <Display  />
+      <Input />
     </div>
-   );
-}
- 
-
+  );
+};
 
 export default App;
+
+

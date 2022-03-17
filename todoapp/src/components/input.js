@@ -1,13 +1,17 @@
-// import { useState } from "react"
 
-const Input = ({ changeHandler, userInput}) => {
-   
-    return (
+const Input = ( { addHandler } ) => {
+ 
+
+    return ( 
         <div>
-            <input onChange={changeHandler}></input>
-            <h2>{userInput}</h2>
-
+            <input 
+        placeholder="what do you need"
+        name="input" 
+        type="text" />
+            <button onClick={() => (addHandler)}>Submit</button>
         </div>
-    )
+            
+     );
 }
-export default Input
+ 
+export default Input;
