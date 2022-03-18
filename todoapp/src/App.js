@@ -1,13 +1,15 @@
 import Display from "./components/Display";
 import Input from "./components/Input";
 import { useState } from "react";
-
+import Trash from "./components/Trash";
 const App = () => {
   // DISPLAY
   // INPUT
   const [input, setInput] = useState("");
   // DISPLAY LIST
   const [toDo, setToDo] = useState([]);
+// DELETED LIST
+const [trash, setTrash] = useState([])
 
   // input 
   const addHandler = (event) => {
@@ -23,21 +25,31 @@ const App = () => {
     // setToDo([...toDo, { input }]);
   };
 
+  
 
-  // DELETE
+
+  // DELETE FROM TO DO LIST 
   const removeHandler = (index) => {
+    
+
+
+    
     let storedArr = [...toDo];
     storedArr.splice(index, 1);
     setToDo(storedArr);
+    
   };
+  
 
   return (
     <div>
+      <h1>SHOPPING LIST</h1>
       <Input addHandler={addHandler} handleClick={handleClick}/>
      
      <Display toDo={toDo} removeHandler={removeHandler} />
-     
-      
+
+   <Trash trash={trash} removeHandler={removeHandler}/>
+
     </div>
   );
 };
