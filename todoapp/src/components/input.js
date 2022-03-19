@@ -3,13 +3,15 @@ const Input = ( { addHandler, handleClick  } ) => {
  
 
     return ( 
-        <div>
-            <input 
+        <div className="submit">
+            <input className="inputTab"
             onChange={addHandler}
-        placeholder="what do you need"
+            autoComplete="off"
+        placeholder="Add Item here..."
         name="input" 
         type="text" />
-            <button onClick={handleClick}>Submit</button>
+            <button className="submitBtn" onClick={handleClick}>+</button>
+            
             
     
         </div>

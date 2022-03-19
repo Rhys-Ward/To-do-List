@@ -1,22 +1,26 @@
 import Display from "./components/Display";
+import "./index.css";
 import Input from "./components/Input";
 import { useState } from "react";
-import Trash from "./components/Trash";
+// import { FaSolid, FaPlus } from "react-icons/fa";
+
+import { motion } from "framer-motion";
+// $ npm install framer-motion for animations
 const App = () => {
   // DISPLAY
   // INPUT
   const [input, setInput] = useState("");
   // DISPLAY LIST
   const [toDo, setToDo] = useState([]);
-// DELETED LIST
-const [trash, setTrash] = useState([])
+  // DELETED LIST
+  const [trash, setTrash] = useState([]);
 
-  // input 
+  // input
   const addHandler = (event) => {
     setInput(event.target.value);
   };
 
-// SUBMIT BUTTON
+  // SUBMIT BUTTON
   const handleClick = () => {
     let storedList = [...toDo];
     storedList.push(input);
@@ -25,35 +29,24 @@ const [trash, setTrash] = useState([])
     // setToDo([...toDo, { input }]);
   };
 
-  
-
-
-  // DELETE FROM TO DO LIST 
+  // DELETE FROM TO DO LIST
   const removeHandler = (index) => {
-    
-
-
-    
     let storedArr = [...toDo];
     storedArr.splice(index, 1);
     setToDo(storedArr);
-    
   };
-  
 
   return (
-    <div>
+    <div className="container">
       <h1>SHOPPING LIST</h1>
-      <Input addHandler={addHandler} handleClick={handleClick}/>
-     
-     <Display toDo={toDo} removeHandler={removeHandler} />
-
-   <Trash trash={trash} removeHandler={removeHandler}/>
-
+      <Input addHandler={addHandler} handleClick={handleClick} />
+      <div className="toDo">
+        <Display toDo={toDo} removeHandler={removeHandler} />
+        {/* <FontAwesomeIcon icon="fa-solid fa-plus" /> */}
+      </div>
+      {/* <Trash trash={trash} removeHandler={removeHandler}/> */}
     </div>
   );
 };
 
 export default App;
-
-
