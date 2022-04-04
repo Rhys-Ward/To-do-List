@@ -1,10 +1,11 @@
 import Display from "./components/Display";
 import "./index.css";
-import Input from "./components/Input";
+import Input from "./components/input.js";
+import {FaShoppingBasket } from "react-icons/fa";
 import { useState } from "react";
 // import { FaSolid, FaPlus } from "react-icons/fa";
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // $ npm install framer-motion for animations
 const App = () => {
   // DISPLAY
@@ -13,7 +14,7 @@ const App = () => {
   // DISPLAY LIST
   const [toDo, setToDo] = useState([]);
   // DELETED LIST
-  const [trash, setTrash] = useState([]);
+  // const [trash, setTrash] = useState([]);
 
   // input
   const addHandler = (event) => {
@@ -38,7 +39,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>SHOPPING LIST</h1>
+      <h1><FaShoppingBasket/></h1>
       <Input addHandler={addHandler} handleClick={handleClick} />
       <div className="toDo">
         <Display toDo={toDo} removeHandler={removeHandler} />

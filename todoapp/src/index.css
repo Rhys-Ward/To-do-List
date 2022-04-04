@@ -10,28 +10,35 @@ body {
   align-items: center;
   font-size: 13px;
   color: #0f1111;
-  background-color: beige;
+  background-color: rgb(88, 120, 207);
 }
 
 .container {
-  border: 2px solid #353535;
+  /* border: 2px solid #353535;
   border-radius: 10px;
-  background-color: #d3d5d7;
+  background-color: #d3d5d7; */
+  background: rgba( 255, 255, 255, 0.5 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 80vh;
   width: 30vw;
-  box-shadow: 5px 3px 5px 1px #353535;
+  /* box-shadow: 5px 3px 5px 1px #353535; */
   letter-spacing: 0.7px;
 }
 
 h1 {
   font-size: 20px;
   padding: 5px;
-  border: 2px solid #353535;
-  border-radius: 5px;
+  /* border: 2px solid #353535; */
+  /* border-radius: 5px; */
   margin-top: 8px;
+  color: white;
 }
 .submit {
   height: 35px;
@@ -112,8 +119,12 @@ input:focus {
 }
 /* EACH LI */
 .eachToDo {
-  background-color: #8fb492;
-  border: 2px solid #353535;
+  background: rgba( 74, 144, 226, 0.5 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 10px );
+-webkit-backdrop-filter: blur( 10px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -126,7 +137,7 @@ input:focus {
   border-radius: 7px;
 }
 .eachToDo:nth-child(odd) {
-  background-color: #669169;
+  background-color: rgba(0, 0, 255, 0.281);
 }
 /* DELETE BUTTON */
 .deleteBtn {
